@@ -3,9 +3,12 @@ class GitHubUi {
         this.profile = document.getElementById("profile");
     }
 
+    /**
+     * Shows the profile for the user profile given.
+     * @param {object} user The profile response from the github api 
+     */
     showProfile(user) {
         const profile = user.profile;
-        console.log(profile);
         this.profile.innerHTML = `
         <div class="card card-body mb-3">
             <div class="row">
@@ -39,11 +42,41 @@ class GitHubUi {
     }
 
     /**
+     * Shows the latest repos for the repo's given.
+     * @param {Array} repos Array of user repos. 
+     */
+    showRepos(repos) {
+        let output = '';
+        const forkIcon = '<i title="Forked" class="material-icons">call_split</i>';
+
+        repos.forEach((repo) => {
+            output += `
+            <div class="card card-body mb-2">
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="${repo.html_url}" target="_blank">${repo.name}</a>
+                        ${repo.fork ? forkIcon : ""}
+                    </div>
+                    <div class="col-md-6">
+                        <span class="badge badge-primary">Stars: ${repo.stargazers_count}</span>
+                        <span class="badge badge-secondary">Watchers: ${repo.watchers_count}</span>
+                        <span class="badge badge-success">Forks: ${repo.forks_count}</span>
+                    </div>
+                </div>
+            </div>
+            `
+        });
+
+        // output the repo's now
+        document.getElementById('repos').innerHTML = output;
+    }
+
+    /**
      * Shows an alert message to the user.
      * Will automatically clear any other alerts if there were any.
-     * @param message The message to show to the user.
-     * @param className the class to attach to the alert
-     * @param time the amount of time, in ms, you want the message to show up (defaults to 3 seconds)
+     * @param {string} message The message to show to the user.
+     * @param {string} className the class to attach to the alert
+     * @param {Number} time the amount of time, in ms, you want the message to show up (defaults to 3 seconds)
      */
     showAlert(message, className, time) {
         this.clearAlert();
