@@ -13,10 +13,11 @@ searchBtn.addEventListener('click', (e) => {
             }
             else {
                 ui.showProfile(data.data);
+                ui.showRepos(data.data.repos);
             }
         });
     }
     else {
         ui.clearProfile();
     }
-})
+});
