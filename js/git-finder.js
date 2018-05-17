@@ -26,7 +26,7 @@ class GitHub {
     constructor() {
         this.settings = new Settings('settings/keys.json');
         this.defaultRepoCont = 5;
-        this.defaultRepoSort = 'created: asc';
+        this.defaultRepoSort = 'asc';
     }
 
     /**
@@ -47,7 +47,7 @@ class GitHub {
         else if(options.reposCount === undefined) {
             options.reposCount = this.defaultRepoCont
         }
-        else {
+        else if(options.repoSort === undefined) {
             options.repoSort = this.defaultRepoSort;
         }
 
@@ -61,12 +61,13 @@ class GitHub {
      */
     async getUser(userName, options) {
         options = this.configureOptions(options);
+        console.log(options);
 
         let isError = false;
         const clientId = this.settings.clientId;
         const secretKey = this.settings.secretKey;
         const profileResponse = await fetch(`${baseUrl}users/${userName}?client_id=${clientId}&client_secret${secretKey}`);
-        const repoResponse = await fetch(`${baseUrl}users/${userName}/repos?per_page=${options.reposCount}&sort=${options.repoSort}&client_id=${clientId}&client_secret${secretKey}`);
+        const repoResponse = await fetch(`${baseUrl}users/${userName}/repos?per_page=${options.reposCount}&sort=created&direction=${options.repoSort}&client_id=${clientId}&client_secret${secretKey}`);
 
         if(profileResponse.status !== 200 || repoResponse.status !== 200) {
             isError = true;
