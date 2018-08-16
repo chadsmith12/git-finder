@@ -4,7 +4,7 @@
   "description": "Basic GitHub User search application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "npx babel src/js/app.js -o public/js/bundle.js --presets env --watch"
   },
   "repository": {
     "type": "git",
