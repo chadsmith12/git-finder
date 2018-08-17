@@ -1,3 +1,6 @@
+import { GitHub } from './git-finder'
+import GitHubUi from './ui';
+
 const searchUser = document.getElementById('userSearch');
 const searchBtn = document.getElementById("searchBtn");
 const numberRepoSelect = document.getElementById("numberRepos");

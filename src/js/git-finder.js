@@ -22,7 +22,7 @@ class Settings {
 /**
  * Github API class to get information from the github api.
  */
-class GitHub {
+export class GitHub {
     constructor() {
         this.settings = new Settings('settings/keys.json');
         this.defaultRepoCont = 5;
