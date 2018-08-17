@@ -4,7 +4,8 @@
   "description": "Basic GitHub User search application",
   "main": "index.js",
   "scripts": {
-    "dev-server": "webpack-dev-server"
+    "dev-server": "webpack-dev-server --mode development",
+    "build": "npx webpack --mode production"
   },
   "repository": {
     "type": "git",

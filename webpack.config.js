@@ -21,5 +21,6 @@ module.exports = {
     devServer: {
         contentBase: path.resolve(__dirname, "public"),
         publicPath: '/js/'
-    }
+    },
+    devtool: 'source-map'
 }
