@@ -1,4 +1,4 @@
-class GitHubUi {
+export default class GitHubUi {
     constructor() {
         this.profile = document.getElementById("profile");
     }
