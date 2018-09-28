@@ -7,6 +7,11 @@ const clientId = 'f0af4cac36e54e0d4409';
  * GitHubSearch Api class to get information from the github API.
  */
 export class GitHubSearch {
+
+    constructor() {
+
+    }
+
     /**
      * Gets all the users basic profile data and latest public repos
      * @param {string} userName The username you are searching for
@@ -31,8 +36,8 @@ export class GitHubSearch {
     /**
      * creates a correctly formatted response object for getUser to return
      * @param {boolean} isError If the response was an error
-     * @param {object} profileData The resposne data for the profile
-     * @param {object} repoData The response data for the repos
+     * @param {Object} profileData The resposne data for the profile
+     * @param {Object} repoData The response data for the repos
      */
     _createResponse(isError, profileData, repoData) {
         if(isError) {
