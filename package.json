@@ -1,36 +1,43 @@
 {
   "name": "git-finder",
-  "version": "1.0.0",
-  "description": "Basic GitHub User search application",
-  "main": "index.js",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "dev-server": "webpack-dev-server --mode development",
-    "build": "npx webpack --mode production"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chadsmith12/git-finder.git"
-  },
-  "keywords": [
-    "GitHub",
-    "User",
-    "search"
-  ],
-  "author": "Chad Smith",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/chadsmith12/git-finder/issues"
-  },
-  "homepage": "https://github.com/chadsmith12/git-finder#readme",
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-loader": "^7.1.5",
-    "babel-preset-env": "^1.7.0",
-    "webpack": "^4.16.5",
-    "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^3.1.5"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
   },
   "dependencies": {
-    "babel-polyfill": "^6.26.0"
-  }
+    "vue": "^2.5.17"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.1",
+    "@vue/cli-plugin-eslint": "^3.0.1",
+    "@vue/cli-service": "^3.0.1",
+    "vue-template-compiler": "^2.5.17"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ]
 }

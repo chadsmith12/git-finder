@@ -7,4 +7,3 @@ GitFinder is a simple GitHub User Search application written in pure JavaScript.
   - Number of followers
   - Number of people they are following.
   - and more...
-
