@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GitFinderApiServer", "GitFinderApiServer\GitFinderApiServer.csproj", "{B91DF776-3A74-48E0-8C5B-AC99137724BA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RESTService", "RESTService\RESTService.csproj", "{10DF9B54-AE92-4137-BB66-139432982A0D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6E58203A-BF64-4CCC-8830-C374EACD4647}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RESTServiceTests", "RESTServiceTests\RESTServiceTests.csproj", "{3354F73A-B57A-4B54-98FD-1B6F77367ED0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B91DF776-3A74-48E0-8C5B-AC99137724BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B91DF776-3A74-48E0-8C5B-AC99137724BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B91DF776-3A74-48E0-8C5B-AC99137724BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B91DF776-3A74-48E0-8C5B-AC99137724BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10DF9B54-AE92-4137-BB66-139432982A0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10DF9B54-AE92-4137-BB66-139432982A0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10DF9B54-AE92-4137-BB66-139432982A0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10DF9B54-AE92-4137-BB66-139432982A0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3354F73A-B57A-4B54-98FD-1B6F77367ED0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3354F73A-B57A-4B54-98FD-1B6F77367ED0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3354F73A-B57A-4B54-98FD-1B6F77367ED0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3354F73A-B57A-4B54-98FD-1B6F77367ED0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {931B2BF8-01D0-4FE5-8720-7D7ECC6C5319}
+	EndGlobalSection
+EndGlobal
