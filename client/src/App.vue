@@ -29,9 +29,10 @@ export default {
     async searchedUser(searchOptions) {
       var gitHub = new GitHubSearch();
       var response = await gitHub.getUser(searchOptions.username, searchOptions.numberRepos, searchOptions.sortBy);
-      if(!response.error) {
-          this.profile = response.data.profile;
-          this.repos = response.data.repos;
+      window.console.log(response);
+      if(response.success) {
+          this.profile = response.profile;
+          this.repos = response.repos;
       }
     }
   },

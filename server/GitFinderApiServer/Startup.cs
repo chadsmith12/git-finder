@@ -22,6 +22,7 @@ namespace GitFinderApiServer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddCors();
 
             // Configure Services
             services.Configure<GitHubApiSettings>(Configuration.GetGitHubApiSettings());
@@ -34,11 +35,6 @@ namespace GitFinderApiServer
                 {
                     Title = "GitFinder Api",
                     Version = "v1"
-                });
-                c.SwaggerDoc("v2", new Swashbuckle.AspNetCore.Swagger.Info
-                {
-                    Title = "GitFinder Api v2",
-                    Version = "v2"
                 });
             });
         }
@@ -55,6 +51,12 @@ namespace GitFinderApiServer
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
+            app.UseCors(builder =>
+            {
+                builder.WithOrigins("http://localhost:8080")
+                       .AllowAnyHeader();
+            });
 
             app.UseStaticFiles();
             app.UseSwagger();

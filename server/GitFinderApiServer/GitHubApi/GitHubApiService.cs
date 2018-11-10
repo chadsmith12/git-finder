@@ -52,7 +52,8 @@ namespace GitFinderApiServer.GitHubApi
             {
                 {"type", type },
                 {"direction", direction },
-                {"sort", sort }
+                {"sort", sort },
+                {"per_page", query.PerPage.ToString() }
             };
         }
     }
