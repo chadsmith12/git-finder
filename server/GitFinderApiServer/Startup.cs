@@ -27,6 +27,20 @@ namespace GitFinderApiServer
             services.Configure<GitHubApiSettings>(Configuration.GetGitHubApiSettings());
 
             services.AddTransient<IGitHubApiService, GitHubApiService>();
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new Swashbuckle.AspNetCore.Swagger.Info
+                {
+                    Title = "GitFinder Api",
+                    Version = "v1"
+                });
+                c.SwaggerDoc("v2", new Swashbuckle.AspNetCore.Swagger.Info
+                {
+                    Title = "GitFinder Api v2",
+                    Version = "v2"
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -42,8 +56,15 @@ namespace GitFinderApiServer
                 app.UseHsts();
             }
 
+            app.UseStaticFiles();
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "GitFinder Api V1");
+            });
             app.UseHttpsRedirection();
             app.UseMvc();
+
         }
     }
 }
