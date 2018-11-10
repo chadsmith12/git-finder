@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using GitFinderApiServer.GitHubApi;
 using GitFinderApiServer.GitHubApi.Settings;
 using GitFinderApiServer.GitHubApi.Configuration;
 
@@ -24,6 +25,8 @@ namespace GitFinderApiServer
 
             // Configure Services
             services.Configure<GitHubApiSettings>(Configuration.GetGitHubApiSettings());
+
+            services.AddTransient<IGitHubApiService, GitHubApiService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

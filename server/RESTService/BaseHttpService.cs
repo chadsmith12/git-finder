@@ -75,11 +75,11 @@ namespace RESTService
 
         protected async Task<Response<T>> CreateSuccessResponse<T>(HttpResponseMessage response)
         {
-            var responseStringTask = response.Content.ReadAsStringAsync();
+            var responseStringTask = await response.Content.ReadAsStringAsync();
             return new Response<T>
             {
                 Success = true,
-                Result = JsonConvert.DeserializeObject<T>(await responseStringTask)
+                Result = JsonConvert.DeserializeObject<T>(responseStringTask)
             };
         }
 
