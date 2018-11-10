@@ -1,7 +1,5 @@
 // base url for all requests
-const baseUrl = 'https://api.github.com/';
-const secretKey = 'INSERT SECRET KEY HERE';
-const clientId = 'f0af4cac36e54e0d4409';
+const baseUrl = 'https://localhost:44325/api/';
 
 /**
  * GitHubSearch Api class to get information from the github API.
@@ -20,8 +18,8 @@ export class GitHubSearch {
      */
     async getUser(userName, repoCount, repoSort) {
         let isError = false;
-        const profileResponse = await fetch(`${baseUrl}users/${userName}?client_id=${clientId}&client_secret${secretKey}`);
-        const repoResponse = await fetch(`${baseUrl}users/${userName}/repos?per_page=${repoCount}&sort=created&direction=${repoSort}&client_id=${clientId}&client_secret${secretKey}`);
+        const profileResponse = await fetch(`${baseUrl}users/${userName}`);
+        const repoResponse = await fetch(`${baseUrl}users/${userName}/repos?sort=created&direction=${repoSort}&perpage=${repoCount}`);
 
         if(profileResponse.status !== 200 || repoResponse.status !== 200) {
             isError = true;
@@ -42,19 +40,15 @@ export class GitHubSearch {
     _createResponse(isError, profileData, repoData) {
         if(isError) {
             return {
-                error: true,
-                data: {
-                    error: profileData
-                }
-            }
+                success: false,
+                error: profileData.error
+            } 
         }
 
         return {
-            error: false,
-            data: {
-                profile: profileData,
-                repos: repoData
-            }
+            success: true,
+            profile: profileData.result,
+            repos: repoData.result
         }
     }
 }
